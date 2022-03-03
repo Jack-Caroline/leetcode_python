@@ -47,17 +47,16 @@
 """
 import re
 
-
 class Solution(object):
     def myAtoi(self, str):
-        stripS = str.strip()
+        stripS = str.strip()  # strip() 消除头尾指定的字符序列（字符），如果为空，则消除空格
         if stripS == "" or stripS == "-" or stripS == "+":
             return 0
-        s1 = re.match('[^\d]', (stripS.lstrip("-")).lstrip("+"))
+        s1 = re.match('[^\d]', (stripS.lstrip("-")).lstrip("+"))  # re 正则表达式；match()方法：只用来匹配字符串的开始位置；
         if s1 != None:
             return 0
         else:
-            s1 = re.search('\-*\+*\d+', stripS).group()
+            s1 = re.search('\-*\+*\d+', stripS).group()     # re 正则表达式； search()方法：用来匹配整个字符串；
         if s1[0:2] == "--" or s1[0:2] == "-+" or s1[0:2] == "++":
             return 0
         result = int(s1)
