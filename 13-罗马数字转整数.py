@@ -45,3 +45,16 @@ C可以放在D(500) 和M(1000) 的左边，来表示400 和900。
 解释: M = 1000, CM = 900, XC = 90, IV = 4.
 
 """
+
+
+class Solution:
+    def romanToInt(self, s):
+        numeral_map = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000}
+        result = 0
+
+        for i in range(len(s)):
+            if i > 0 and numeral_map[s[i]] > numeral_map[s[i - 1]]:
+                result += numeral_map[s[i]] - 2 * numeral_map[s[i - 1]]
+            else:
+                result += numeral_map[s[i]]
+        return result
