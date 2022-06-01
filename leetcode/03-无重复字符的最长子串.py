@@ -32,3 +32,9 @@ class Solution:
                 if i - start>max:
                     max = i-start
         return max
+
+if __name__ == '__main__':
+    l = "abcbdefgha"
+    s = Solution()
+    i = s.lengthOfLongestSubstring(l)
+    print(i)

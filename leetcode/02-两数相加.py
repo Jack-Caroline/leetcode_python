@@ -29,7 +29,7 @@ class ListNode:
 
 
 class Solution:
-    def addTwoNumbers(self, l1: ListNode, l2: ListNode):
+    def addTwoNumbers(self, l1, l2):
         if l1 == None:
             return l2
         if l2 == None:

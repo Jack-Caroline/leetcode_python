@@ -34,7 +34,7 @@ class Solution:
     #             return list
 
     # 方法二
-    def TowSum(self, nums: list, target: int):
+    def TowSum(self, nums, target):
         dict = {}
         for i in range(len(nums)):
             j = target - nums[i]
