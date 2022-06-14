@@ -9,6 +9,7 @@
 
 def sift(li, low, hight):
     """
+    建立大根堆
     :param li:列表
     :param low: 堆的根节点位置
     :param hight: 堆的最后一个元素的位置
