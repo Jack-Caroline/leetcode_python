@@ -9,10 +9,13 @@
     分解：将列表越分越小，直至分成一个元素
     终止条件：一个元素是有序的
     合并：将两个有序列表归并，列表越来越大；
+时间复杂度：O(nlogn)
+空间复杂度：O(n)
+
 """
 
 
-def merge(li, low, mid, high):
+def Merge(li, low, mid, high):
     i = low
     j = mid + 1
     l = []
@@ -32,5 +35,13 @@ def merge(li, low, mid, high):
     return l
 
 
-li = [1, 3, 5, 7, 9, 2, 4, 6, 8, 10, 12, 14, 16]
-print(merge(li, 0, 4, 12))
+# li = [1, 3, 5, 7, 9, 2, 4, 6, 8, 10, 12, 14, 16]
+# print(Merge(li, 0, 4, 12))
+
+
+def MergeSort(li, low, high):
+    if low < high:
+        mid = (low + high) // 2
+        MergeSort(li, low, mid)
+        MergeSort(li, mid + 1, high)
+        Merge(li, low, mid, high)
