@@ -24,7 +24,7 @@ class Solution:
         nums = sorted(nums)
         result = nums[0] + nums[1] + nums[len(nums) - 1]
 
-        for i in range(len(nums) - 1):
+        for i in range(len(nums) - 2):
             if i > 0 and nums[i] == nums[i - 1]:
                 continue
             l = i + 1
