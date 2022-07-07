@@ -28,13 +28,14 @@ class Solution:
                 start = d[s[i]]
                 d[s[i]] = i
             else:
-                d[s[i]]=i
-                if i - start>max:
-                    max = i-start
+                d[s[i]] = i
+                if i - start > max:
+                    max = i - start
         return max
 
+
 if __name__ == '__main__':
-    l = "abcbdefgha"
+    l = "abcbbdfhjeefaghzxa"
     s = Solution()
     i = s.lengthOfLongestSubstring(l)
     print(i)
