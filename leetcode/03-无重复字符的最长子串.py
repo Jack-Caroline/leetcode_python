@@ -19,17 +19,17 @@
 
 class Solution:
     def lengthOfLongestSubstring(self, s):
-        start = -1
-        max = 0
-        d = {}
+        start = -1     # 左边初始值
+        max = 0      # 最大长度
+        d = {}       # 将字符串的字母存到字典中，key为字母，value为位置
 
-        for i in range(len(s)):
-            if s[i] in d and d[s[i]] > start:
-                start = d[s[i]]
-                d[s[i]] = i
+        for i in range(len(s)):  # 根据字符串长度，循环字符串的 index
+            if s[i] in d and d[s[i]] > start:  # 判断 i 位置的值是否在字典d的key中，判断i位置的值当key在字典中的value值是否大于左边初始值start；
+                start = d[s[i]]  # 上面判断成立，证明遇到字母重复，将start移动到重复字母第一个的位置上
+                d[s[i]] = i     # 将重复字母的第二个数字赋值给字典上对应key的值；
             else:
-                d[s[i]] = i
-                if i - start > max:
+                d[s[i]] = i    # 不成立，添加或者修改key对应的值；
+                if i - start > max:  # 如果i-start为不重复字母的长度，大于max，则更新max值；
                     max = i - start
         return max
 
