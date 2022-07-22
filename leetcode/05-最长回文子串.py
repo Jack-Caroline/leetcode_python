@@ -10,25 +10,46 @@
 """
 
 
+# 方法一
+# class Solution:
+#     def longestPalindrome(self, s):
+#         palindrome = ''
+#
+#         for i in range(len(s)):
+#             len1 = len(self.getlongestpalindrome(s, i, i))
+#
+#             if len1 > len(palindrome):
+#                 palindrome = self.getlongestpalindrome(s, i, i)
+#
+#             len2 = len(self.getlongestpalindrome(s, i, i + 1))
+#
+#             if len2 > len(palindrome):
+#                 palindrome = self.getlongestpalindrome(s, i, i + 1)
+#
+#         return palindrome
+#
+#     def getlongestpalindrome(self, s, l, r):
+#         while l >= 0 and r < len(s) and s[l] == s[r]:
+#             l -= 1
+#             r += 1
+#         return s[l + 1:r]
+
+# 方法二
 class Solution:
-    def longestPalindrome(self, s):
-        palindrome = ''
-
+    def longestPalindrome(self, s: str):
+        res = ""
         for i in range(len(s)):
-            len1 = len(self.getlongestpalindrome(s, i, i))
+            start = max(i-len(res)-1,0)
+            temp = s[start:i+1]
+            if temp == temp[::-1]:
+                res = temp
+            else:
+                temp = temp[1:]
+                if temp == temp[::-1]:
+                    res = temp
+        return res
 
-            if len1 > len(palindrome):
-                palindrome = self.getlongestpalindrome(s, i, i)
-
-            len2 = len(self.getlongestpalindrome(s, i, i + 1))
-
-            if len2 > len(palindrome):
-                palindrome = self.getlongestpalindrome(s, i, i + 1)
-
-        return palindrome
-
-    def getlongestpalindrome(self, s, l, r):
-        while l >= 0 and r < len(s) and s[l] == s[r]:
-            l -= 1
-            r += 1
-        return s[l + 1:r]
+if __name__ == '__main__':
+    s = "asdfggfdsasd"
+    sol = Solution()
+    print(sol.longestPalindrome(s))
